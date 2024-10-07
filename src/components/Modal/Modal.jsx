@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Modal({ isVisible, onClose, children }) {
+export default function Modal({ isVisible, onClose, children, className }) {
     if (!isVisible) return null;
     return (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-80 flex justify-center items-center z-50">
+        <div className=  { className || "fixed inset-0 bg-gray-900 bg-opacity-80 flex justify-center items-center z-50"}>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-5 w-full max-w-md relative">
             <button
               onClick={onClose}

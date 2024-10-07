@@ -38,6 +38,8 @@ const baseURL = `http://127.0.0.1:8000/api/v1.0.0/`
 
             localStorage.setItem("token", token);
 
+            localStorage.setItem("userId", response.data.data[0].id);
+
             if (response.data.success) {
 
                 toast.success(response.data.message)

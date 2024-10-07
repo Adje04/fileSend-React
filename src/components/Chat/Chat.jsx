@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Messages from './Messages'; 
+import Messages from './Messages';
 import Button from '../Button/Button';
 import Groupbar from '../Navbar/Groupbar';
 import { toast } from 'react-toastify';
 
-export default function Chat({ group }) {
+export default function Chat({ group, goBackClick }) {
     const [files, setFiles] = useState([]);
     const [file, setFile] = useState(null);
     const baseURL = `http://127.0.0.1:8000/api/v1.0.0/`
 
-
+    const currentUserId = localStorage.getItem('userId');
+    console.log(currentUserId);
     const groupId = localStorage.getItem('selectedGroupId');
     if (!groupId) {
         toast.error('Aucun groupe sélectionné.');
@@ -18,15 +19,14 @@ export default function Chat({ group }) {
 
     }
 
-  
     const fetchFiles = async () => {
         try {
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
             const response = await axios.get(`${baseURL}groupfiles/${groupId}`);
-            console.log(response.data);  
-    
+            console.log(response.data);
+
             if (response.data.success) {
-                setFiles(response.data.data);  
+                setFiles(response.data.data);
             } else {
                 toast.error('Erreur lors de la récupération des fichiers');
             }
@@ -34,7 +34,7 @@ export default function Chat({ group }) {
             console.error('Erreur lors de la récupération des fichiers :', error);
         }
     };
-    
+
 
     useEffect(() => {
         fetchFiles();
@@ -57,11 +57,21 @@ export default function Chat({ group }) {
                     'Content-Type': 'multipart/form-data',
                 },
             });
+
+
             if (response.data.success) {
+
                 setFiles((prevMessages) => [
                     ...prevMessages,
-                    { id: response.data.data.id, user: 'me', content: response.data.data.path, type: 'file' },
+                    {
+                        id: response.data.data.id,
+                        user: response.data.data.user_id,
+                        username: response.data.data.user.name,
+                        content: response.data.data.path,
+                        type: 'file'
+                    },
                 ]);
+                console.log(user)
                 toast.success('Fichier téléchargé avec succès');
                 setFile(null);
                 fetchFiles();
@@ -79,15 +89,26 @@ export default function Chat({ group }) {
     return (
         <div className="h-screen flex flex-col bg-gray-900 text-white">
 
-            <Groupbar group={group} />
+            <Groupbar group={group} goBackClick={goBackClick} />
 
             <div className="flex-grow overflow-y-auto px-4 py-6">
                 {files.map((file) => (
-                    <Messages key={file.id} user={'me'} content={file.path} type="file" />
-                ))}
-                {/* user={file.user_id === Your logged-in user ID  ? 'me' : file.user_id} */}
-            </div>
+                    <Messages
+                        key={file.id}
+                        // Assure que l'ID est comparé correctement
+                        user={file.user_id === parseInt(currentUserId) ? currentUserId : ''} 
+                        content={file.path}
+                        type="file"
+                        createdAt={new Date(file.created_at).toLocaleString()}
+                        // Rendu conditionnel du nom d'utilisateur si ce n'est pas l'utilisateur actuel
+                        username={file.user_id === parseInt(currentUserId) ? null : (file.username || 'other')}
+                    />
 
+
+                ))}
+
+
+            </div>
 
             <form
                 onSubmit={handleSubmit}
@@ -112,5 +133,53 @@ export default function Chat({ group }) {
         </div>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const fileImage = (fileName) => {
+//     return /\.(jpg|jpeg|png|gif)$/i.test(fileName);
+// };
+
+// name: response.data.data.name,
+
+// {
+//     files.map((file) => {
+//         const isImage = fileImage(file.path);
+//         return (
+//             <Messages
+//                 key={file.id}
+//                 user={'me'}
+//                 content={isImage ? file.path : file.name}
+//                 type={'file'}
+//             />
+//         );
+//     })
+// }
+
+
 
 
