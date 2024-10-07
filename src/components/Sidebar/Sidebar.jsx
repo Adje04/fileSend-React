@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Input from '../Input/Input';
@@ -95,9 +94,6 @@ export default function Sidebar({ onGroupClick }) {
     </aside>
   );
 }
-
-
-
 
 
 

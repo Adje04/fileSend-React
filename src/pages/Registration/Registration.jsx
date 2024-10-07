@@ -76,7 +76,7 @@
 //             label={'Name'}
 //             type={'text'}
 //             reference={'name'}
-//             placeHolder={'Saisir le nom ici...'}
+//            placeholder={'Saisir le nom ici...'}
 //             value={name}
 //             onChange={(e) => setName(e.target.value)}
 //             className="mb-4"
@@ -85,7 +85,7 @@
 //             label={'Email'}
 //             type={'email'}
 //             reference={'email'}
-//             placeHolder={'Saisir l\'adresse e-mail ici...'}
+//            placeholder={'Saisir l\'adresse e-mail ici...'}
 //             value={email}
 //             onChange={(e) => setEmail(e.target.value)}
 //             className="mb-4"
@@ -94,7 +94,7 @@
 //             label={'Mot de passe'}
 //             type={'password'}
 //             reference={'password'}
-//             placeHolder={'Saisir le mot de passe ici...'}
+//            placeholder={'Saisir le mot de passe ici...'}
 //             value={password}
 //             onChange={(e) => setPassword(e.target.value)}
 //             className="mb-4"
@@ -103,7 +103,7 @@
 //             label={'Confirmer le mot de passe'}
 //             type={'password'}
 //             reference={'passwordConfirm'}
-//             placeHolder={'Confirmer le mot de passe ici...'}
+//            placeholder={'Confirmer le mot de passe ici...'}
 //             value={passwordConfirm}
 //             onChange={(e) => setpasswordConfirm(e.target.value)}
 //             className="mb-6"
@@ -141,7 +141,7 @@
 // //           label={'Name'}
 // //           type={'text'}
 // //           reference={'name'}
-// //           placeHolder={'Saisir le nom ici...'}
+// //          placeholder={'Saisir le nom ici...'}
 // //           value={name}
 // //           onChange={(e) => {
 // //             setName(e.target.value)
@@ -150,7 +150,7 @@
 // //           label={'Email'}
 // //           type={'email'}
 // //           reference={'email'}
-// //           placeHolder={'Saisir l\'adresse e-mail ici...'}
+// //          placeholder={'Saisir l\'adresse e-mail ici...'}
 // //           value={email}
 // //           onChange={(e) => {
 // //             setEmail(e.target.value)
@@ -160,7 +160,7 @@
 // //           label={'Mot de passe'}
 // //           type={'password'}
 // //           reference={'password'}
-// //           placeHolder={'Saisir le mot de passe  ici...'}
+// //          placeholder={'Saisir le mot de passe  ici...'}
 // //           value={password}
 // //           onChange={(e) => {
 // //             setPassword(e.target.value)
@@ -170,7 +170,7 @@
 // //           label={'Confirmer le mot de passe'}
 // //           type={'password'}
 // //           reference={'passwordConfirm'}
-// //           placeHolder={'Confirmer le mot de passe  ici...'}
+// //          placeholder={'Confirmer le mot de passe  ici...'}
 // //           value={passwordConfirm}
 // //           onChange={(e) => {
 // //             setpasswordConfirm(e.target.value)
@@ -267,37 +267,37 @@ export default function Registration() {
                         label={'Name'}
                         type={'text'}
                         reference={'name'}
-                        placeHolder={'Saisir le nom ici...'}
+                       placeholder={'Saisir le nom ici...'}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="mb-2 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        className="mb-2 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-whiteplaceholder-gray-500 dark:placeholder-gray-400"
                     />
                     <Input
                         label={'Email'}
                         type={'email'}
                         reference={'email'}
-                        placeHolder={'Saisir l\'adresse e-mail ici...'}
+                       placeholder={'Saisir l\'adresse e-mail ici...'}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="mb-2 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        className="mb-2 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-whiteplaceholder-gray-500 dark:placeholder-gray-400"
                     />
                     <Input
                         label={'Mot de passe'}
                         type={'password'}
                         reference={'password'}
-                        placeHolder={'Saisir le mot de passe ici...'}
+                       placeholder={'Saisir le mot de passe ici...'}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="mb-3 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        className="mb-3 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-whiteplaceholder-gray-500 dark:placeholder-gray-400"
                     />
                     <Input
                         label={'Confirmer le mot de passe'}
                         type={'password'}
                         reference={'passwordConfirm'}
-                        placeHolder={'Confirmer le mot de passe ici...'}
+                       placeholder={'Confirmer le mot de passe ici...'}
                         value={passwordConfirm}
                         onChange={(e) => setpasswordConfirm(e.target.value)}
-                        className="mb-6 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        className="mb-6 bg-transparent border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-whiteplaceholder-gray-500 dark:placeholder-gray-400"
                     />
 
                     <div>

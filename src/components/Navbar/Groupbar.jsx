@@ -73,8 +73,8 @@ export default function Groupbar({ group, goBackClick }) {
                 <div className="ml-3">
                     <h1 className="text-lg font-bold">{group.name}</h1>
                   <div className="flex gap-6">
-                       <p className="text-sm text-gray-400">{77} Members</p>
-                       <p className="text-sm text-gray-300"> {group.description} </p>
+                       {/* <p className="text-sm text-gray-400">{77} Members</p> */}
+                       <p className="text-sm text-gray-500"> {group.description} </p>
                   </div>
                 </div>
             </div>

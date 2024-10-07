@@ -71,7 +71,7 @@ export default function Chat({ group, goBackClick }) {
                         type: 'file'
                     },
                 ]);
-                console.log(user)
+                
                 toast.success('Fichier téléchargé avec succès');
                 setFile(null);
                 fetchFiles();
